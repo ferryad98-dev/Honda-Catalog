@@ -14,7 +14,9 @@
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         
-        /* Manual Slider Style */
+        /* Slider Wrapper */
+        .slider-wrapper { position: relative; width: 100%; }
+        
         .manual-slider { 
             display: flex; 
             overflow-x: auto; 
@@ -29,6 +31,27 @@
             align-items: center; 
             justify-content: center;
         }
+
+        /* Panah Navigasi */
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(4px);
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            z-index: 10;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        .nav-btn:active { scale: 0.9; background: white; }
+        .btn-prev { left: -5px; }
+        .btn-next { right: -5px; }
     </style>
 </head>
 <body class="pb-32">
@@ -42,7 +65,7 @@
                     <p class="text-[8px] font-bold text-slate-400 tracking-widest uppercase mt-0.5">Authorized Honda Dealer</p>
                 </div>
             </div>
-            <button class="w-10 h-10 bg-slate-50 flex items-center justify-center rounded-2xl active:scale-90 transition">
+            <button class="w-10 h-10 bg-slate-50 flex items-center justify-center rounded-2xl">
                 <svg class="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-width="2.5" stroke-linecap="round"></path></svg>
             </button>
         </div>
@@ -52,33 +75,29 @@
         <div class="grid grid-cols-2 gap-5">
             
             <div class="bg-white rounded-[2.5rem] p-5 shadow-sm border border-slate-100 flex flex-col justify-between">
-                <div>
-                    <div class="manual-slider no-scrollbar mb-4 h-28">
-                        <div class="manual-slide">
-                            <img src="img/beat/variant-web-beat-sporty-black-deluxe-sk-copy-24072025-010919.webp" class="w-full h-full object-contain">
-                        </div>
-                        <div class="manual-slide">
-                            <img src="img/beat/variant-web-beat-sporty-blue-deluxe-sk-copy-24072025-010915.webp" class="w-full h-full object-contain">
-                        </div>
-                        <div class="manual-slide">
-                            <img src="img/beat/variant-web-beat-sporty-brown-deluxe-sk-copy-24072025-010911.webp" class="w-full h-full object-contain">
-                        </div>
-                        <div class="manual-slide">
-                            <img src="img/beat/variant-web-beat-sporty-funk-red-black-cbs-copy-24072025-010938.webp" class="w-full h-full object-contain">
-                        </div>
+                <div class="slider-wrapper">
+                    <button onclick="sideScroll('beat-slider', 'left')" class="nav-btn btn-prev">
+                        <svg class="w-4 h-4 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                    </button>
+                    <button onclick="sideScroll('beat-slider', 'right')" class="nav-btn btn-next">
+                        <svg class="w-4 h-4 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                    </button>
+
+                    <div id="beat-slider" class="manual-slider no-scrollbar h-28">
+                        <div class="manual-slide"><img src="img/beat/variant-web-beat-sporty-black-deluxe-sk-copy-24072025-010919.webp" class="w-full h-full object-contain"></div>
+                        <div class="manual-slide"><img src="img/beat/variant-web-beat-sporty-blue-deluxe-sk-copy-24072025-010915.webp" class="w-full h-full object-contain"></div>
+                        <div class="manual-slide"><img src="img/beat/variant-web-beat-sporty-brown-deluxe-sk-copy-24072025-010911.webp" class="w-full h-full object-contain"></div>
+                        <div class="manual-slide"><img src="img/beat/variant-web-beat-sporty-funk-red-black-cbs-copy-24072025-010938.webp" class="w-full h-full object-contain"></div>
                     </div>
-                    
-                    <h3 class="text-xs font-extrabold text-slate-800 uppercase tracking-widest">Beat Series</h3>
-                    <p class="text-[7px] text-slate-300 font-bold uppercase tracking-widest mt-1">← Geser Warna →</p>
                 </div>
                 
-                <a href="https://wa.me/6282232864543?text=Halo%20Hambra%20Motor,%20saya%20ingin%20tanya%20stok%20BeAT" 
-                   target="_blank" class="text-[9px] text-red-600 font-bold mt-3 uppercase tracking-tighter italic block">Tanya Stok →</a>
+                <h3 class="text-[10px] font-extrabold text-slate-800 uppercase tracking-widest mt-4">Beat Series</h3>
+                <a href="https://wa.me/6282232864543" target="_blank" class="text-[9px] text-red-600 font-bold mt-3 uppercase tracking-tighter italic block">Cek Stok →</a>
             </div>
 
             <div class="bg-white rounded-[2.5rem] p-5 shadow-sm border border-slate-100 opacity-60">
                 <img src="https://via.placeholder.com/200x150?text=Vario+125" class="w-full h-28 object-contain mb-4">
-                <h3 class="text-xs font-extrabold text-slate-800 uppercase tracking-widest">Vario 125</h3>
+                <h3 class="text-[10px] font-extrabold text-slate-800 uppercase tracking-widest">Vario 125</h3>
                 <p class="text-[9px] text-slate-400 font-bold mt-2 uppercase tracking-tighter italic">Segera Hadir</p>
             </div>
 
@@ -87,9 +106,21 @@
 
     <nav class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] bg-white/90 backdrop-blur-xl rounded-[2.5rem] flex justify-around py-5 shadow-2xl z-50 border border-slate-100">
         <button class="text-red-600 flex flex-col items-center gap-1"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg><span class="text-[8px] font-bold uppercase">Home</span></button>
-        <a href="https://wa.me/6282232864543" target="_blank" class="text-slate-300 flex flex-col items-center gap-1 text-center"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg><span class="text-[8px] font-bold uppercase">Hubungi Saya</span></a>
+        <a href="https://wa.me/6282232864543" target="_blank" class="text-slate-300 flex flex-col items-center gap-1"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg><span class="text-[8px] font-bold uppercase">Chat</span></a>
         <a href="https://maps.app.goo.gl/vJX61emznz2Xoaan8" target="_blank" class="text-slate-300 flex flex-col items-center gap-1"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path></svg><span class="text-[8px] font-bold uppercase">Dealer</span></a>
     </nav>
+
+    <script>
+        function sideScroll(id, direction) {
+            const container = document.getElementById(id);
+            const scrollAmount = container.clientWidth;
+            if (direction === 'left') {
+                container.scrollLeft -= scrollAmount;
+            } else {
+                container.scrollLeft += scrollAmount;
+            }
+        }
+    </script>
 
 </body>
 </html>
