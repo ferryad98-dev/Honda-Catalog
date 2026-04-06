@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>HAMBRA MOTOR HONDA - Zoom Edition</title>
+    <title>HAMBRA MOTOR HONDA - Official Catalog</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     
@@ -14,46 +14,32 @@
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         
-        /* Slider Wrapper */
+        /* Slider & Navigasi */
         .slider-wrapper { position: relative; width: 100%; }
-        
         .manual-slider { 
-            display: flex; 
-            overflow-x: auto; 
-            scroll-snap-type: x mandatory; 
-            scroll-behavior: smooth;
-            -webkit-overflow-scrolling: touch;
+            display: flex; overflow-x: auto; scroll-snap-type: x mandatory; 
+            scroll-behavior: smooth; -webkit-overflow-scrolling: touch;
         }
         .manual-slide { 
-            min-width: 100%; 
-            scroll-snap-align: center; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center;
+            min-width: 100%; scroll-snap-align: center; 
+            display: flex; align-items: center; justify-content: center;
         }
-
-        /* Panah Navigasi */
         .nav-btn {
             position: absolute; top: 50%; transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(4px);
+            background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(4px);
             width: 28px; height: 28px; border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1); z-index: 10; border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1); z-index: 10;
         }
-        .nav-btn:active { scale: 0.9; background: white; }
-        .btn-prev { left: -5px; }
-        .btn-next { right: -5px; }
 
-        /* Modal Lightbox (Zoom) */
+        /* Modal Lightbox */
         #zoom-modal {
-            position: fixed; inset: 0; background: rgba(0, 0, 0, 0.7);
+            position: fixed; inset: 0; background: rgba(0, 0, 0, 0.8);
             backdrop-filter: blur(10px); display: none;
-            justify-content: center; align-items: center; z-index: 100; opacity: 0;
-            transition: opacity 0.3s ease-in-out;
+            justify-content: center; align-items: center; z-index: 100;
         }
-        #zoom-modal.active { display: flex; opacity: 1; }
-        #modal-img { max-width: 90%; max-height: 80%; object-fit: contain; transform: scale(0.9); transition: transform 0.3s ease-out; }
-        #zoom-modal.active #modal-img { transform: scale(1); }
+        #zoom-modal.active { display: flex; }
+        #modal-img { max-width: 90%; max-height: 80%; object-fit: contain; }
     </style>
 </head>
 <body class="pb-32">
@@ -61,10 +47,10 @@
     <header class="bg-white px-5 py-4 sticky top-0 z-50 shadow-sm border-b border-slate-50">
         <div class="flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <img src="logo.jpg" alt="Logo TAM Group" class="w-10 h-10 object-contain rounded-lg shadow-sm border border-slate-100">
+                <img src="logo.jpg" alt="Logo TAM Group" class="w-10 h-10 object-contain rounded-lg">
                 <div>
-                    <h1 class="text-xl font-extrabold italic honda-red leading-none uppercase">HAMBRA MOTOR</h1>
-                    <p class="text-[8px] font-bold text-slate-400 tracking-widest mt-0.5">Authorized Honda Dealer</p>
+                    <h1 class="text-xl font-extrabold italic tracking-tighter honda-red leading-none uppercase">HAMBRA MOTOR</h1>
+                    <p class="text-[8px] font-bold text-slate-400 tracking-widest uppercase mt-0.5">Authorized Honda Dealer</p>
                 </div>
             </div>
             <button class="w-10 h-10 bg-slate-50 flex items-center justify-center rounded-2xl">
@@ -78,76 +64,60 @@
             
             <div class="bg-white rounded-[2.5rem] p-5 shadow-sm border border-slate-100 flex flex-col justify-between">
                 <div class="slider-wrapper">
-                    <button onclick="sideScroll('beat-slider', 'left')" class="nav-btn btn-prev">
-                        <svg class="w-4 h-4 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                    <button onclick="sideScroll('beat-slider', 'left')" class="nav-btn left-[-5px]">
+                        <svg class="w-4 h-4 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-width="3" stroke-linecap="round"></path></svg>
                     </button>
-                    <button onclick="sideScroll('beat-slider', 'right')" class="nav-btn btn-next">
-                        <svg class="w-4 h-4 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                    <button onclick="sideScroll('beat-slider', 'right')" class="nav-btn right-[-5px]">
+                        <svg class="w-4 h-4 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-width="3" stroke-linecap="round"></path></svg>
                     </button>
 
-                    <div id="beat-slider" class="manual-slider no-scrollbar h-28 cursor-zoom-in">
-                        <div class="manual-slide"><img src="img/beat/variant-web-beat-sporty-black-deluxe-sk-copy-24072025-010919.webp" onclick="openZoom(this)" class="w-full h-full object-contain"></div>
-                        <div class="manual-slide"><img src="img/beat/variant-web-beat-sporty-blue-deluxe-sk-copy-24072025-010915.webp" onclick="openZoom(this)" class="w-full h-full object-contain"></div>
-                        <div class="manual-slide"><img src="img/beat/variant-web-beat-sporty-brown-deluxe-sk-copy-24072025-010911.webp" onclick="openZoom(this)" class="w-full h-full object-contain"></div>
-                        <div class="manual-slide"><img src="img/beat/variant-web-beat-sporty-funk-red-black-cbs-copy-24072025-010938.webp" onclick="openZoom(this)" class="w-full h-full object-contain"></div>
+                    <div id="beat-slider" class="manual-slider no-scrollbar h-28">
+                        <div class="manual-slide"><img src="img/beat/variant-web-beat-sporty-black-deluxe-sk-copy-24072025-010919.webp" onclick="openZoom(this)" class="w-full h-full object-contain cursor-zoom-in"></div>
+                        <div class="manual-slide"><img src="img/beat/variant-web-beat-sporty-blue-deluxe-sk-copy-24072025-010915.webp" onclick="openZoom(this)" class="w-full h-full object-contain cursor-zoom-in"></div>
                     </div>
                 </div>
                 
                 <h3 class="text-[10px] font-extrabold text-slate-800 uppercase tracking-widest mt-4">Beat Series</h3>
-                <a href="https://wa.me/6282232864543" target="_blank" class="text-[9px] text-red-600 font-bold mt-3 uppercase tracking-tighter italic block">Tanya Stok →</a>
+                <a href="https://wa.me/6282232864543" target="_blank" class="text-[9px] honda-red font-extrabold mt-3 uppercase tracking-tighter italic block">TANYA STOK →</a>
             </div>
 
             <div class="bg-white rounded-[2.5rem] p-5 shadow-sm border border-slate-100 opacity-60">
                 <img src="https://via.placeholder.com/200x150?text=Vario+125" class="w-full h-28 object-contain mb-4">
                 <h3 class="text-[10px] font-extrabold text-slate-800 uppercase tracking-widest">Vario 125</h3>
-                <p class="text-[9px] text-slate-400 font-bold mt-2 uppercase tracking-tighter italic">Segera Hadir</p>
+                <p class="text-[9px] text-slate-400 font-bold mt-2 uppercase tracking-tighter italic italic">SEGERA HADIR</p>
             </div>
 
         </div>
     </main>
 
     <nav class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] bg-white/90 backdrop-blur-xl rounded-[2.5rem] flex justify-around py-5 shadow-2xl z-50 border border-slate-100">
-        <button class="text-red-600 flex flex-col items-center gap-1 active:scale-95 transition"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg><span class="text-[8px] font-bold uppercase">Home</span></button>
-        <a href="https://wa.me/6282232864543" target="_blank" class="text-slate-300 flex flex-col items-center gap-1"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg><span class="text-[8px] font-bold uppercase">Chat</span></a>
-        <a href="https://maps.app.goo.gl/vJX61emznz2Xoaan8" target="_blank" class="text-slate-300 flex flex-col items-center gap-1"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path></svg><span class="text-[8px] font-bold uppercase">Dealer</span></a>
+        <button class="text-red-600 flex flex-col items-center gap-1">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
+            <span class="text-[8px] font-bold uppercase">HOME</span>
+        </button>
+        <a href="https://wa.me/6282232864543" target="_blank" class="text-slate-300 flex flex-col items-center gap-1">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+            <span class="text-[8px] font-bold uppercase">CHAT</span>
+        </a>
+        <a href="https://maps.app.goo.gl/vJX61emznz2Xoaan8" target="_blank" class="text-slate-300 flex flex-col items-center gap-1">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path></svg>
+            <span class="text-[8px] font-bold uppercase">DEALER</span>
+        </a>
     </nav>
 
-    <div id="zoom-modal" onclick="closeZoom(event)">
-        <button onclick="closeZoom(null)" class="absolute top-6 right-6 text-white/70 hover:text-white transition active:scale-90">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-        </button>
-        <img id="modal-img" src="" alt="Perbesar Gambar">
+    <div id="zoom-modal" onclick="this.classList.remove('active')">
+        <img id="modal-img" src="">
     </div>
 
     <script>
-        // Logika Slider
         function sideScroll(id, direction) {
             const container = document.getElementById(id);
-            const scrollAmount = container.clientWidth;
-            if (direction === 'left') {
-                container.scrollLeft -= scrollAmount;
-            } else {
-                container.scrollLeft += scrollAmount;
-            }
+            container.scrollLeft += direction === 'left' ? -container.clientWidth : container.clientWidth;
         }
-
-        // Logika ZOOM (Lightbox)
-        const modal = document.getElementById('zoom-modal');
-        const modalImg = document.getElementById('modal-img');
-
-        function openZoom(image) {
-            modal.classList.add('active');
-            modalImg.src = image.src; // Salin pautan gambar yang diklik
-        }
-
-        function closeZoom(event) {
-            // Tutup jika tombol X diklik ATAU jika user mengklik latar belakang modal (bukan gambarnya)
-            if (event === null || event.target.id === 'zoom-modal' || event.target.tagName === 'button' || event.target.tagName === 'svg') {
-                modal.classList.remove('active');
-                modalImg.src = ''; // Bersihkan src agar modal bersih saat ditutup
-            }
+        function openZoom(img) {
+            document.getElementById('modal-img').src = img.src;
+            document.getElementById('zoom-modal').classList.add('active');
         }
     </script>
-
 </body>
 </html>
