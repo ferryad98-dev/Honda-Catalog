@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>HAMBRA MOTOR HONDA - Katalog Varian</title>
+    <title>HAMBRA MOTOR HONDA</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     
@@ -14,11 +14,21 @@
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         
-        /* Style Slider */
-        .slider-container { position: relative; overflow: hidden; width: 100%; height: 110px; border-radius: 1rem; }
-        .slider-track { display: flex; transition: transform 0.5s ease-in-out; }
-        .slide { min-width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
-        .slide img { width: 100%; height: 100%; object-fit: contain; }
+        /* Manual Slider Style */
+        .manual-slider { 
+            display: flex; 
+            overflow-x: auto; 
+            scroll-snap-type: x mandatory; 
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+        .manual-slide { 
+            min-width: 100%; 
+            scroll-snap-align: center; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+        }
     </style>
 </head>
 <body class="pb-32">
@@ -33,43 +43,37 @@
                 </div>
             </div>
             <button class="w-10 h-10 bg-slate-50 flex items-center justify-center rounded-2xl active:scale-90 transition">
-                <svg class="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-width="2.5" stroke-linecap="round"></path>
-                </svg>
+                <svg class="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-width="2.5" stroke-linecap="round"></path></svg>
             </button>
         </div>
     </header>
 
-    <div class="p-4">
-        <div class="w-full h-44 bg-gradient-to-br from-red-700 to-red-900 rounded-[2.5rem] mb-4 overflow-hidden relative shadow-xl shadow-red-100 text-white p-8 flex flex-col justify-end">
-            <span class="text-[9px] font-bold bg-black/20 w-fit px-3 py-1 rounded-full mb-3 uppercase tracking-wider">Official Store</span>
-            <h2 class="text-2xl font-bold leading-tight">Varian BeAT Terbaru</h2>
-            <p class="text-xs text-red-100 mt-2 opacity-80">Geser gambar untuk melihat warna.</p>
-        </div>
-    </div>
-
-    <main class="px-4">
+    <main class="px-4 mt-6">
         <div class="grid grid-cols-2 gap-5">
             
-            <div class="bg-white rounded-[2.5rem] p-5 shadow-sm border border-slate-100">
-                <div class="slider-container mb-4">
-                    <div class="slider-track" id="beat-slider">
-                        <div class="slide">
-                            <img src="img/beat/variant-web-beat-sporty-black-deluxe-sk-copy-24072025-010919.webp" alt="BeAT Black">
+            <div class="bg-white rounded-[2.5rem] p-5 shadow-sm border border-slate-100 flex flex-col justify-between">
+                <div>
+                    <div class="manual-slider no-scrollbar mb-4 h-28">
+                        <div class="manual-slide">
+                            <img src="img/beat/variant-web-beat-sporty-black-deluxe-sk-copy-24072025-010919.webp" class="w-full h-full object-contain">
                         </div>
-                        <div class="slide">
-                            <img src="img/beat/variant-web-beat-sporty-blue-deluxe-sk-copy-24072025-010915.webp" alt="BeAT Blue">
+                        <div class="manual-slide">
+                            <img src="img/beat/variant-web-beat-sporty-blue-deluxe-sk-copy-24072025-010915.webp" class="w-full h-full object-contain">
                         </div>
-                        <div class="slide">
-                            <img src="img/beat/variant-web-beat-sporty-brown-deluxe-sk-copy-24072025-010911.webp" alt="BeAT Brown">
+                        <div class="manual-slide">
+                            <img src="img/beat/variant-web-beat-sporty-brown-deluxe-sk-copy-24072025-010911.webp" class="w-full h-full object-contain">
                         </div>
-                        <div class="slide">
-                            <img src="img/beat/variant-web-beat-sporty-funk-red-black-cbs-copy-24072025-010938.webp" alt="BeAT Red">
+                        <div class="manual-slide">
+                            <img src="img/beat/variant-web-beat-sporty-funk-red-black-cbs-copy-24072025-010938.webp" class="w-full h-full object-contain">
                         </div>
                     </div>
+                    
+                    <h3 class="text-xs font-extrabold text-slate-800 uppercase tracking-widest">Beat Series</h3>
+                    <p class="text-[7px] text-slate-300 font-bold uppercase tracking-widest mt-1">← Geser Warna →</p>
                 </div>
-                <h3 class="text-xs font-extrabold text-slate-800 uppercase tracking-widest">Beat Series</h3>
-                <a href="https://wa.me/6282232864543" class="text-[9px] text-red-600 font-bold mt-2 uppercase tracking-tighter italic block">Tanya Stok Warna →</a>
+                
+                <a href="https://wa.me/6282232864543?text=Halo%20Hambra%20Motor,%20saya%20ingin%20tanya%20stok%20BeAT" 
+                   target="_blank" class="text-[9px] text-red-600 font-bold mt-3 uppercase tracking-tighter italic block">Tanya Stok →</a>
             </div>
 
             <div class="bg-white rounded-[2.5rem] p-5 shadow-sm border border-slate-100 opacity-60">
@@ -83,21 +87,9 @@
 
     <nav class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] bg-white/90 backdrop-blur-xl rounded-[2.5rem] flex justify-around py-5 shadow-2xl z-50 border border-slate-100">
         <button class="text-red-600 flex flex-col items-center gap-1"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg><span class="text-[8px] font-bold uppercase">Home</span></button>
-        <a href="https://wa.me/6282232864543" class="text-slate-300 flex flex-col items-center gap-1 text-center"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg><span class="text-[8px] font-bold uppercase">Hubungi Saya</span></a>
-        <a href="https://maps.app.goo.gl/vJX61emznz2Xoaan8" class="text-slate-300 flex flex-col items-center gap-1"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path></svg><span class="text-[8px] font-bold uppercase">Dealer</span></a>
+        <a href="https://wa.me/6282232864543" target="_blank" class="text-slate-300 flex flex-col items-center gap-1 text-center"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg><span class="text-[8px] font-bold uppercase">Hubungi Saya</span></a>
+        <a href="https://maps.app.goo.gl/vJX61emznz2Xoaan8" target="_blank" class="text-slate-300 flex flex-col items-center gap-1"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path></svg><span class="text-[8px] font-bold uppercase">Dealer</span></a>
     </nav>
-
-    <script>
-        // Logika Auto-Slider
-        let currentSlide = 0;
-        const track = document.getElementById('beat-slider');
-        const slides = track.children.length;
-
-        setInterval(() => {
-            currentSlide = (currentSlide + 1) % slides;
-            track.style.transform = `translateX(-${currentSlide * 100}%)`;
-        }, 3000); // Ganti gambar setiap 3 detik
-    </script>
 
 </body>
 </html>
