@@ -77,6 +77,7 @@
                     <div id="beat-s" class="manual-slider no-scrollbar">
                         <div class="manual-slide"><img src="img/beat/variant-web-beat-sporty-black-deluxe-sk-copy-24072025-010919.webp" onclick="openZ(this)" class="h-full object-contain cursor-zoom-in"></div>
                         <div class="manual-slide"><img src="img/beat/variant-web-beat-sporty-blue-deluxe-sk-copy-24072025-010915.webp" onclick="openZ(this)" class="h-full object-contain cursor-zoom-in"></div>
+                        <div class="manual-slide"><img src="img/beat/variant-web-beat-sporty-funk-red-black-cbs-copy-24072025-010938.webp" onclick="openZ(this)" class="h-full object-contain cursor-zoom-in"></div>
                     </div>
                 </div>
                 <h3 class="text-[10px] font-extrabold text-slate-800 uppercase tracking-widest mt-6">Beat Series</h3>
@@ -96,12 +97,10 @@
             <svg class="w-6 h-6 text-red-600" fill="currentColor" viewBox="0 0 24 24"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
             <span class="text-[8px] font-bold text-red-600 uppercase">Home</span>
         </div>
-        
         <a href="https://wa.me/6282232864543" class="flex flex-col items-center gap-1 text-slate-300">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
             <span class="text-[8px] font-bold uppercase">Chat</span>
         </a>
-
         <a href="https://maps.google.com/?cid=14572631656595787026&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNl" class="flex flex-col items-center gap-1 text-slate-300">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
             <span class="text-[8px] font-bold uppercase">Dealer</span>
@@ -115,8 +114,26 @@
     <script>
         function sideScroll(id, dir) {
             const el = document.getElementById(id);
-            el.scrollLeft += (dir === 'l' ? -el.clientWidth : el.clientWidth);
+            const scrollStep = el.clientWidth;
+            const maxScrollLeft = el.scrollWidth - el.clientWidth;
+
+            if (dir === 'r') {
+                // Jika sudah di paling kanan, balik ke nol
+                if (el.scrollLeft >= maxScrollLeft - 5) { 
+                    el.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    el.scrollBy({ left: scrollStep, behavior: 'smooth' });
+                }
+            } else {
+                // Jika sudah di paling kiri, lompat ke paling kanan
+                if (el.scrollLeft <= 5) {
+                    el.scrollTo({ left: maxScrollLeft, behavior: 'smooth' });
+                } else {
+                    el.scrollBy({ left: -scrollStep, behavior: 'smooth' });
+                }
+            }
         }
+
         function openZ(img) {
             document.getElementById('z-img').src = img.src;
             document.getElementById('zoom-modal').classList.add('active');
