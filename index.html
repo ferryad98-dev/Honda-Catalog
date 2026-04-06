@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katalog Produk Motor Honda</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .honda-red { color: #ed1c24; }
+        .bg-honda-red { background-color: #ed1c24; }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 h-20 flex justify-between items-center">
+            <div class="flex items-center gap-8">
+                <h1 class="text-3xl font-black italic tracking-tighter honda-red">HONDA</h1>
+                <div class="hidden md:flex gap-6 text-sm font-semibold text-gray-700">
+                    <a href="#" class="hover:honda-red transition">PRODUCT</a>
+                    <a href="#" class="hover:honda-red transition">PROMO</a>
+                    <a href="#" class="hover:honda-red transition">AFTER SALES</a>
+                </div>
+            </div>
+            <button class="bg-gray-100 p-2 rounded-full">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <section class="bg-white py-6">
+        <div class="max-w-7xl mx-auto px-4 flex gap-4 overflow-x-auto pb-2 scrollbar-hide">
+            <button class="px-6 py-2 bg-honda-red text-white rounded-full text-sm font-bold shadow-lg shadow-red-200">ALL</button>
+            <button class="px-6 py-2 bg-gray-100 text-gray-600 rounded-full text-sm font-bold hover:bg-gray-200 transition">MATIC</button>
+            <button class="px-6 py-2 bg-gray-100 text-gray-600 rounded-full text-sm font-bold hover:bg-gray-200 transition">SPORT</button>
+            <button class="px-6 py-2 bg-gray-100 text-gray-600 rounded-full text-sm font-bold hover:bg-gray-200 transition">CUB</button>
+            <button class="px-6 py-2 bg-gray-100 text-gray-600 rounded-full text-sm font-bold hover:bg-gray-200 transition">EV</button>
+        </div>
+    </section>
+
+    <main class="max-w-7xl mx-auto px-4 py-12">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            
+            <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-transparent hover:border-red-100 group">
+                <div class="relative mb-6">
+                    <span class="absolute top-0 left-0 bg-yellow-400 text-[10px] font-bold px-2 py-1 rounded">NEW</span>
+                    <img src="https://via.placeholder.com/400x300?text=Vario+160" alt="Motor" class="w-full h-40 object-contain group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div>
+                    <h3 class="text-xl font-extrabold text-gray-900 uppercase">New Vario 160</h3>
+                    <p class="text-sm text-gray-500 mt-1">Starting from</p>
+                    <p class="text-lg font-bold honda-red">Rp 27.350.000</p>
+                </div>
+                <div class="mt-6 pt-6 border-t border-gray-50 flex gap-2">
+                    <button class="flex-1 border border-gray-300 py-2 rounded-lg text-sm font-bold hover:bg-gray-50 transition">Detail</button>
+                    <button class="flex-1 bg-honda-red text-white py-2 rounded-lg text-sm font-bold hover:bg-red-700 transition">Beli</button>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-transparent hover:border-red-100 group">
+                <div class="relative mb-6">
+                    <img src="https://via.placeholder.com/400x300?text=CBR250RR" alt="Motor" class="w-full h-40 object-contain group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div>
+                    <h3 class="text-xl font-extrabold text-gray-900 uppercase">CBR250RR</h3>
+                    <p class="text-sm text-gray-500 mt-1">Starting from</p>
+                    <p class="text-lg font-bold honda-red">Rp 64.100.000</p>
+                </div>
+                <div class="mt-6 pt-6 border-t border-gray-50 flex gap-2">
+                    <button class="flex-1 border border-gray-300 py-2 rounded-lg text-sm font-bold hover:bg-gray-50 transition">Detail</button>
+                    <button class="flex-1 bg-honda-red text-white py-2 rounded-lg text-sm font-bold hover:bg-red-700 transition">Beli</button>
+                </div>
+            </div>
+
+            </div>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-12 mt-20">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-2xl font-black italic mb-4">HONDA</h2>
+            <p class="text-gray-400 text-sm">© 2026 PT Astra Honda Motor. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
