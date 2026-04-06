@@ -12,7 +12,6 @@
         .honda-red { color: #ed1c24; }
         .bg-honda-red { background-color: #ed1c24; }
         .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         
         /* Banner Gradient */
         .hero-banner {
@@ -37,7 +36,7 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.1); z-index: 10; border: 1px solid #eee;
         }
 
-        /* Modal Zoom */
+        /* Zoom Modal */
         #zoom-modal {
             position: fixed; inset: 0; background: rgba(0,0,0,0.95);
             display: none; justify-content: center; align-items: center; z-index: 100;
@@ -76,7 +75,6 @@
 
     <main class="px-4 mt-8">
         <div class="grid grid-cols-2 gap-5">
-            
             <div class="bg-white rounded-[2.5rem] p-5 shadow-sm border border-slate-50 flex flex-col justify-between">
                 <div class="slider-wrapper">
                     <button onclick="sideScroll('beat-s', 'l')" class="nav-btn -left-2">
@@ -88,12 +86,10 @@
                     <div id="beat-s" class="manual-slider no-scrollbar">
                         <div class="manual-slide"><img src="img/beat/variant-web-beat-sporty-black-deluxe-sk-copy-24072025-010919.webp" onclick="openZ(this)" class="h-full object-contain cursor-zoom-in"></div>
                         <div class="manual-slide"><img src="img/beat/variant-web-beat-sporty-blue-deluxe-sk-copy-24072025-010915.webp" onclick="openZ(this)" class="h-full object-contain cursor-zoom-in"></div>
-                        <div class="manual-slide"><img src="img/beat/variant-web-beat-sporty-funk-red-black-cbs-copy-24072025-010938.webp" onclick="openZ(this)" class="h-full object-contain cursor-zoom-in"></div>
                     </div>
                 </div>
-                
                 <h3 class="text-[10px] font-extrabold text-slate-800 uppercase tracking-widest mt-6">Beat Series</h3>
-                <a href="https://wa.me/6282232864543" class="text-[9px] honda-red font-extrabold mt-3 uppercase italic block">Tanya Stok →</a>
+                <a href="https://wa.me/6282232864543" class="text-[9px] honda-red font-extrabold mt-3 uppercase italic block">TANYA STOK →</a>
             </div>
 
             <div class="bg-white rounded-[2.5rem] p-5 shadow-sm border border-slate-50 flex flex-col items-center justify-center opacity-40">
@@ -101,7 +97,6 @@
                 <h3 class="text-[10px] font-extrabold text-slate-800 uppercase tracking-widest">Vario 125</h3>
                 <p class="text-[8px] text-slate-400 font-bold mt-2 uppercase italic">Segera Hadir</p>
             </div>
-
         </div>
     </main>
 
@@ -110,18 +105,18 @@
             <svg class="w-6 h-6 text-red-600" fill="currentColor" viewBox="0 0 24 24"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
             <span class="text-[8px] font-bold text-red-600 uppercase">Home</span>
         </div>
-        <div class="flex flex-col items-center gap-1 text-slate-300">
+        <a href="https://wa.me/6282232864543" class="flex flex-col items-center gap-1 text-slate-300">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
-            <span class="text-[8px] font-bold uppercase">Produk</span>
-        </div>
-        <div class="flex flex-col items-center gap-1 text-slate-300">
+            <span class="text-[8px] font-bold uppercase">Chat</span>
+        </a>
+        <a href="https://www.google.com/maps/place/?q=place_id:ChIJa5nNe9LhBzERnbxs78s_px4" class="flex flex-col items-center gap-1 text-slate-300">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path></svg>
             <span class="text-[8px] font-bold uppercase">Dealer</span>
-        </div>
+        </a>
     </nav>
 
     <div id="zoom-modal" onclick="this.classList.remove('active')">
-        <img id="z-img" class="max-w-[90%] max-h-[85%] object-contain shadow-2xl">
+        <img id="z-img" class="max-w-[90%] max-h-[85%] object-contain">
     </div>
 
     <script>
