@@ -2,89 +2,109 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Katalog Produk Motor Honda</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Honda Mobile Catalog</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; }
+        body { font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; }
         .honda-red { color: #ed1c24; }
         .bg-honda-red { background-color: #ed1c24; }
+        /* Sembunyikan scrollbar tapi tetap bisa scroll */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
-<body class="bg-gray-50">
-
-    <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 h-20 flex justify-between items-center">
-            <div class="flex items-center gap-8">
-                <h1 class="text-3xl font-black italic tracking-tighter honda-red">HONDA</h1>
-                <div class="hidden md:flex gap-6 text-sm font-semibold text-gray-700">
-                    <a href="#" class="hover:honda-red transition">PRODUCT</a>
-                    <a href="#" class="hover:honda-red transition">PROMO</a>
-                    <a href="#" class="hover:honda-red transition">AFTER SALES</a>
-                </div>
-            </div>
-            <button class="bg-gray-100 p-2 rounded-full">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-            </button>
+<body class="bg-gray-100 pb-24"> <header class="bg-white px-4 py-4 sticky top-0 z-50 shadow-sm flex justify-between items-center">
+        <h1 class="text-2xl font-black italic tracking-tighter honda-red">HONDA</h1>
+        <div class="flex gap-4">
+            <button class="p-1"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+            <button class="p-1"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg></button>
         </div>
-    </nav>
+    </header>
 
-    <section class="bg-white py-6">
-        <div class="max-w-7xl mx-auto px-4 flex gap-4 overflow-x-auto pb-2 scrollbar-hide">
-            <button class="px-6 py-2 bg-honda-red text-white rounded-full text-sm font-bold shadow-lg shadow-red-200">ALL</button>
-            <button class="px-6 py-2 bg-gray-100 text-gray-600 rounded-full text-sm font-bold hover:bg-gray-200 transition">MATIC</button>
-            <button class="px-6 py-2 bg-gray-100 text-gray-600 rounded-full text-sm font-bold hover:bg-gray-200 transition">SPORT</button>
-            <button class="px-6 py-2 bg-gray-100 text-gray-600 rounded-full text-sm font-bold hover:bg-gray-200 transition">CUB</button>
-            <button class="px-6 py-2 bg-gray-100 text-gray-600 rounded-full text-sm font-bold hover:bg-gray-200 transition">EV</button>
+    <div class="bg-white border-b sticky top-[64px] z-40">
+        <div class="flex overflow-x-auto no-scrollbar py-3 px-4 gap-3 whitespace-nowrap">
+            <button class="px-5 py-2 bg-honda-red text-white rounded-full text-xs font-bold">SEMUA</button>
+            <button class="px-5 py-2 bg-gray-100 text-gray-600 rounded-full text-xs font-bold">MATIK</button>
+            <button class="px-5 py-2 bg-gray-100 text-gray-600 rounded-full text-xs font-bold">SPORT</button>
+            <button class="px-5 py-2 bg-gray-100 text-gray-600 rounded-full text-xs font-bold">CUB</button>
+            <button class="px-5 py-2 bg-gray-100 text-gray-600 rounded-full text-xs font-bold">EV</button>
         </div>
-    </section>
+    </div>
 
-    <main class="max-w-7xl mx-auto px-4 py-12">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+    <main class="p-4">
+        <div class="w-full h-40 bg-gray-300 rounded-2xl mb-6 overflow-hidden relative">
+            <img src="https://via.placeholder.com/600x300?text=Promo+Maret+Honda" class="w-full h-full object-cover">
+            <div class="absolute bottom-3 left-3 bg-white/90 px-3 py-1 rounded text-[10px] font-bold">PROMO TERBARU</div>
+        </div>
+
+        <h2 class="text-lg font-bold mb-4 flex justify-between items-center">
+            Produk Pilihan
+            <span class="text-xs text-gray-400 font-normal">Tampilkan semua</span>
+        </h2>
+
+        <div class="grid grid-cols-2 gap-3">
             
-            <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-transparent hover:border-red-100 group">
-                <div class="relative mb-6">
-                    <span class="absolute top-0 left-0 bg-yellow-400 text-[10px] font-bold px-2 py-1 rounded">NEW</span>
-                    <img src="https://via.placeholder.com/400x300?text=Vario+160" alt="Motor" class="w-full h-40 object-contain group-hover:scale-110 transition-transform duration-500">
+            <div class="bg-white rounded-xl p-3 shadow-sm border border-gray-50 active:scale-95 transition-transform">
+                <div class="relative h-32 flex items-center justify-center mb-2">
+                    <img src="https://via.placeholder.com/200x150?text=Vario" alt="Vario" class="max-h-full">
+                    <span class="absolute top-0 left-0 bg-red-100 text-red-600 text-[8px] font-bold px-1.5 py-0.5 rounded">BEST SELLER</span>
                 </div>
-                <div>
-                    <h3 class="text-xl font-extrabold text-gray-900 uppercase">New Vario 160</h3>
-                    <p class="text-sm text-gray-500 mt-1">Starting from</p>
-                    <p class="text-lg font-bold honda-red">Rp 27.350.000</p>
-                </div>
-                <div class="mt-6 pt-6 border-t border-gray-50 flex gap-2">
-                    <button class="flex-1 border border-gray-300 py-2 rounded-lg text-sm font-bold hover:bg-gray-50 transition">Detail</button>
-                    <button class="flex-1 bg-honda-red text-white py-2 rounded-lg text-sm font-bold hover:bg-red-700 transition">Beli</button>
-                </div>
+                <h3 class="text-sm font-bold text-gray-800 uppercase truncate">Vario 160</h3>
+                <p class="text-[10px] text-gray-400">Mulai dari</p>
+                <p class="text-sm font-bold honda-red">Rp 27,3 Jt</p>
             </div>
 
-            <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-transparent hover:border-red-100 group">
-                <div class="relative mb-6">
-                    <img src="https://via.placeholder.com/400x300?text=CBR250RR" alt="Motor" class="w-full h-40 object-contain group-hover:scale-110 transition-transform duration-500">
+            <div class="bg-white rounded-xl p-3 shadow-sm border border-gray-50 active:scale-95 transition-transform">
+                <div class="relative h-32 flex items-center justify-center mb-2">
+                    <img src="https://via.placeholder.com/200x150?text=Stylo" alt="Stylo" class="max-h-full">
+                    <span class="absolute top-0 left-0 bg-yellow-100 text-yellow-600 text-[8px] font-bold px-1.5 py-0.5 rounded">NEW</span>
                 </div>
-                <div>
-                    <h3 class="text-xl font-extrabold text-gray-900 uppercase">CBR250RR</h3>
-                    <p class="text-sm text-gray-500 mt-1">Starting from</p>
-                    <p class="text-lg font-bold honda-red">Rp 64.100.000</p>
-                </div>
-                <div class="mt-6 pt-6 border-t border-gray-50 flex gap-2">
-                    <button class="flex-1 border border-gray-300 py-2 rounded-lg text-sm font-bold hover:bg-gray-50 transition">Detail</button>
-                    <button class="flex-1 bg-honda-red text-white py-2 rounded-lg text-sm font-bold hover:bg-red-700 transition">Beli</button>
-                </div>
+                <h3 class="text-sm font-bold text-gray-800 uppercase truncate">Stylo 160</h3>
+                <p class="text-[10px] text-gray-400">Mulai dari</p>
+                <p class="text-sm font-bold honda-red">Rp 28,1 Jt</p>
             </div>
 
+            <div class="bg-white rounded-xl p-3 shadow-sm border border-gray-50 active:scale-95 transition-transform">
+                <div class="relative h-32 flex items-center justify-center mb-2">
+                    <img src="https://via.placeholder.com/200x150?text=Beat" alt="Beat" class="max-h-full">
+                </div>
+                <h3 class="text-sm font-bold text-gray-800 uppercase truncate">BeAT Street</h3>
+                <p class="text-[10px] text-gray-400">Mulai dari</p>
+                <p class="text-sm font-bold honda-red">Rp 18,9 Jt</p>
             </div>
+
+            <div class="bg-white rounded-xl p-3 shadow-sm border border-gray-50 active:scale-95 transition-transform">
+                <div class="relative h-32 flex items-center justify-center mb-2">
+                    <img src="https://via.placeholder.com/200x150?text=CBR" alt="CBR" class="max-h-full">
+                </div>
+                <h3 class="text-sm font-bold text-gray-800 uppercase truncate">CBR150R</h3>
+                <p class="text-[10px] text-gray-400">Mulai dari</p>
+                <p class="text-sm font-bold honda-red">Rp 37,8 Jt</p>
+            </div>
+
+        </div>
     </main>
 
-    <footer class="bg-gray-900 text-white py-12 mt-20">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <h2 class="text-2xl font-black italic mb-4">HONDA</h2>
-            <p class="text-gray-400 text-sm">© 2026 PT Astra Honda Motor. All Rights Reserved.</p>
-        </div>
-    </footer>
+    <nav class="fixed bottom-0 left-0 right-0 bg-white border-t flex justify-around py-3 z-50 shadow-[0_-2px_10px_rgba(0,0,0,0.05)]">
+        <button class="flex flex-col items-center gap-1 honda-red">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
+            <span class="text-[10px] font-bold">Home</span>
+        </button>
+        <button class="flex flex-col items-center gap-1 text-gray-400">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+            <span class="text-[10px] font-medium">Produk</span>
+        </button>
+        <button class="flex flex-col items-center gap-1 text-gray-400">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+            <span class="text-[10px] font-medium">Dealer</span>
+        </button>
+        <button class="flex flex-col items-center gap-1 text-gray-400">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+            <span class="text-[10px] font-medium">Akun</span>
+        </button>
+    </nav>
 
 </body>
 </html>
