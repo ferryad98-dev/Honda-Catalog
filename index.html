@@ -23,7 +23,7 @@
     <header class="bg-white px-5 py-4 sticky top-0 z-50 shadow-sm border-b border-slate-50">
         <div class="flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <img src="logo.jpg" alt="Logo" class="w-10 h-10 object-contain rounded-lg">
+                <img src="logo.jpg" alt="Logo TAM Group" class="w-10 h-10 object-contain rounded-lg">
                 <div>
                     <h1 class="text-xl font-extrabold italic tracking-tighter honda-red leading-none uppercase">HAMBRA MOTOR</h1>
                     <p class="text-[8px] font-bold text-slate-400 tracking-widest uppercase mt-0.5">Authorized Honda Dealer</p>
@@ -62,43 +62,30 @@
     </div>
 
     <main class="px-4">
-        <div id="no-results" class="hidden py-24 text-center">
-            <p class="text-slate-400 font-bold">Model tidak ditemukan...</p>
-        </div>
-
         <div id="product-grid" class="grid grid-cols-2 gap-5">
             <a href="https://www.astra-honda.com/product/beat" target="_blank" class="product-card bg-white rounded-[2.5rem] p-6 shadow-sm border border-slate-100 block" data-type="matic" data-name="beat">
                 <img src="https://via.placeholder.com/200x150?text=BeAT" alt="BeAT" class="w-full h-28 object-contain mb-4">
                 <h3 class="text-xs font-extrabold text-slate-800 uppercase tracking-widest">Beat</h3>
-                <p class="text-[9px] text-red-600 font-bold mt-2 uppercase tracking-tighter italic">Selengkapnya &rarr;</p>
+                <p class="text-[9px] text-red-600 font-bold mt-2 uppercase tracking-tighter italic">Selengkapnya →</p>
             </a>
             <a href="https://www.astra-honda.com/product/vario-125" target="_blank" class="product-card bg-white rounded-[2.5rem] p-6 shadow-sm border border-slate-100 block" data-type="matic" data-name="vario 125">
                 <img src="https://via.placeholder.com/200x150?text=Vario+125" alt="Vario 125" class="w-full h-28 object-contain mb-4">
                 <h3 class="text-xs font-extrabold text-slate-800 uppercase tracking-widest">Vario 125</h3>
-                <p class="text-[9px] text-red-600 font-bold mt-2 uppercase tracking-tighter italic">Selengkapnya &rarr;</p>
-            </a>
-            <a href="https://www.astra-honda.com/product/vario-160" target="_blank" class="product-card bg-white rounded-[2.5rem] p-6 shadow-sm border border-slate-100 block" data-type="matic" data-name="vario 160">
-                <img src="https://via.placeholder.com/200x150?text=Vario+160" alt="Vario 160" class="w-full h-28 object-contain mb-4">
-                <h3 class="text-xs font-extrabold text-slate-800 uppercase tracking-widest">Vario 160</h3>
-                <p class="text-[9px] text-red-600 font-bold mt-2 uppercase tracking-tighter italic">Selengkapnya &rarr;</p>
-            </a>
-            <a href="https://www.astra-honda.com/product/stylo-160" target="_blank" class="product-card bg-white rounded-[2.5rem] p-6 shadow-sm border border-slate-100 block" data-type="matic" data-name="stylo 160">
-                <img src="https://via.placeholder.com/200x150?text=Stylo+160" alt="Stylo 160" class="w-full h-28 object-contain mb-4">
-                <h3 class="text-xs font-extrabold text-slate-800 uppercase tracking-widest">Stylo 160</h3>
-                <p class="text-[9px] text-red-600 font-bold mt-2 uppercase tracking-tighter italic">Selengkapnya &rarr;</p>
+                <p class="text-[9px] text-red-600 font-bold mt-2 uppercase tracking-tighter italic">Selengkapnya →</p>
             </a>
         </div>
     </main>
 
     <nav class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] bg-white/90 backdrop-blur-xl rounded-[2.5rem] flex justify-around py-5 shadow-2xl z-50 border border-slate-100">
-        <button class="text-red-600 flex flex-col items-center gap-1 active:scale-90 transition">
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="text-red-600 flex flex-col items-center gap-1 active:scale-90 transition">
             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
             <span class="text-[8px] font-bold uppercase tracking-widest">Home</span>
         </button>
-        <button class="text-slate-300 flex flex-col items-center gap-1 active:scale-90 transition">
+
+        <a href="https://wa.me/6282232864543?text=Halo%20Hambra%20Motor,%20saya%20ingin%20tanya%20stok%20motor..." target="_blank" class="text-slate-300 flex flex-col items-center gap-1 active:scale-90 transition">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-            <span class="text-[8px] font-bold uppercase tracking-widest">Produk</span>
-        </button>
+            <span class="text-[8px] font-bold uppercase tracking-widest text-center">Hubungi Saya</span>
+        </a>
         
         <a href="https://maps.app.goo.gl/vJX61emznz2Xoaan8" target="_blank" class="text-slate-300 flex flex-col items-center gap-1 active:scale-90 transition">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke-linecap="round" stroke-linejoin="round"></path><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
@@ -130,13 +117,11 @@
                 b.className = 'cat-btn px-7 py-2.5 bg-white text-slate-400 border border-slate-100 rounded-xl text-[11px] font-bold uppercase transition-all';
             });
             btn.className = 'cat-btn px-7 py-2.5 bg-honda-red text-white rounded-xl text-[11px] font-bold uppercase transition-all shadow-lg shadow-red-100';
-
             document.querySelectorAll('.product-card').forEach(item => {
                 const match = type === 'semua' || item.getAttribute('data-type') === type;
                 item.style.display = match ? 'block' : 'none';
             });
         }
     </script>
-
 </body>
 </html>
