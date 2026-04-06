@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>HAMBRA MOTOR HONDA</title>
+    <title>HAMBRA MOTOR HONDA - Home</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     
@@ -12,7 +12,9 @@
         .honda-red { color: #ed1c24; }
         .bg-honda-red { background-color: #ed1c24; }
         .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         
+        /* Banner Gradient */
         .hero-banner {
             background: linear-gradient(135deg, #ed1c24 0%, #8b1115 100%);
             border-radius: 2.5rem;
@@ -20,6 +22,7 @@
             overflow: hidden;
         }
 
+        /* Slider Wrapper */
         .slider-wrapper { position: relative; width: 100%; height: 110px; }
         .manual-slider { 
             display: flex; overflow-x: auto; scroll-snap-type: x mandatory; 
@@ -27,6 +30,7 @@
         }
         .manual-slide { min-width: 100%; scroll-snap-align: center; display: flex; justify-content: center; }
 
+        /* Navigasi Panah Slider */
         .nav-btn {
             position: absolute; top: 50%; transform: translateY(-50%);
             background: rgba(255, 255, 255, 0.9); border-radius: 50%; width: 24px; height: 24px;
@@ -34,6 +38,7 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.1); z-index: 10; border: 1px solid #eee;
         }
 
+        /* Zoom Modal */
         #zoom-modal {
             position: fixed; inset: 0; background: rgba(0,0,0,0.95);
             display: none; justify-content: center; align-items: center; z-index: 100;
@@ -47,7 +52,7 @@
         <div class="flex items-center gap-3">
             <img src="logo.jpg" class="w-10 h-10 object-contain rounded-lg">
             <div>
-                <h1 class="text-xl font-extrabold italic leading-none honda-red">HAMBRA MOTOR</h1>
+                <h1 class="text-xl font-extrabold italic leading-none honda-red uppercase">HAMBRA MOTOR</h1>
                 <p class="text-[8px] font-bold text-slate-400 tracking-widest uppercase mt-0.5">Authorized Honda Dealer</p>
             </div>
         </div>
@@ -60,12 +65,19 @@
         <div class="hero-banner p-8 text-white shadow-xl shadow-red-200">
             <span class="bg-black/20 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Official Store</span>
             <h2 class="text-2xl font-extrabold leading-tight mt-3">Selamat Datang di<br>Hambra Motor</h2>
-            <p class="text-[11px] text-white/80 mt-2">Cek stok terbaru dan promo menarik di sini.</p>
+            <p class="text-[11px] text-white/80 mt-2">Solusi motor Honda terbaik untuk Anda.</p>
         </div>
     </section>
 
-    <main class="px-4 mt-12">
+    <div class="flex gap-3 px-4 mt-8 overflow-x-auto no-scrollbar">
+        <button class="bg-honda-red text-white px-6 py-2.5 rounded-2xl text-[10px] font-bold uppercase shadow-lg shadow-red-200">Semua</button>
+        <button class="bg-white border border-slate-100 text-slate-400 px-6 py-2.5 rounded-2xl text-[10px] font-bold uppercase">Matic</button>
+        <button class="bg-white border border-slate-100 text-slate-400 px-6 py-2.5 rounded-2xl text-[10px] font-bold uppercase">Sport</button>
+    </div>
+
+    <main class="px-4 mt-8">
         <div class="grid grid-cols-2 gap-5">
+            
             <div class="bg-white rounded-[2.5rem] p-5 shadow-sm border border-slate-50 flex flex-col justify-between">
                 <div class="slider-wrapper">
                     <button onclick="sideScroll('beat-s', 'l')" class="nav-btn -left-2">
@@ -77,55 +89,57 @@
                     <div id="beat-s" class="manual-slider no-scrollbar">
                         <div class="manual-slide"><img src="img/beat/variant-web-beat-sporty-black-deluxe-sk-copy-24072025-010919.webp" onclick="openZ(this)" class="h-full object-contain cursor-zoom-in"></div>
                         <div class="manual-slide"><img src="img/beat/variant-web-beat-sporty-blue-deluxe-sk-copy-24072025-010915.webp" onclick="openZ(this)" class="h-full object-contain cursor-zoom-in"></div>
-                        <div class="manual-slide"><img src="img/beat/variant-web-beat-sporty-funk-red-black-cbs-copy-24072025-010938.webp" onclick="openZ(this)" class="h-full object-contain cursor-zoom-in"></div>
                     </div>
                 </div>
+                
                 <h3 class="text-[10px] font-extrabold text-slate-800 uppercase tracking-widest mt-6">Beat Series</h3>
-                <a href="https://wa.me/6282232864543" class="text-[9px] honda-red font-extrabold mt-3 uppercase italic block text-center">TANYA STOK →</a>
+                <a href="beat.html" class="text-[9px] honda-red font-extrabold mt-3 uppercase italic block text-center border border-red-100 py-2 rounded-xl active:bg-red-50">LIHAT VARIAN →</a>
             </div>
 
             <div class="bg-white rounded-[2.5rem] p-5 shadow-sm border border-slate-50 flex flex-col items-center justify-center opacity-40">
                 <div class="h-24 w-full bg-slate-50 rounded-3xl mb-4"></div>
                 <h3 class="text-[10px] font-extrabold text-slate-800 uppercase tracking-widest">Vario 125</h3>
-                <p class="text-[8px] text-slate-400 font-bold mt-2 uppercase italic">Coming Soon</p>
+                <p class="text-[8px] text-slate-400 font-bold mt-2 uppercase italic">Segera Hadir</p>
             </div>
+
         </div>
     </main>
 
-    <nav class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[92%] bg-white rounded-[2.5rem] py-5 px-10 shadow-2xl flex justify-between items-center border border-slate-50 z-50">
-        <div class="flex flex-col items-center gap-1">
+    <nav class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] bg-white rounded-[2.5rem] py-5 px-10 shadow-2xl flex justify-between items-center border border-slate-50 z-50">
+        <div class="flex flex-col items-center gap-1 active:scale-90 transition">
             <svg class="w-6 h-6 text-red-600" fill="currentColor" viewBox="0 0 24 24"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
             <span class="text-[8px] font-bold text-red-600 uppercase">Home</span>
         </div>
-        <a href="https://wa.me/6282232864543" class="flex flex-col items-center gap-1 text-slate-300">
+        
+        <a href="https://wa.me/6282232864543" class="flex flex-col items-center gap-1 text-slate-300 active:scale-90 transition">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
             <span class="text-[8px] font-bold uppercase">Chat</span>
         </a>
-        <a href="https://maps.google.com/?cid=14572631656595787026&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNl" class="flex flex-col items-center gap-1 text-slate-300">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+
+        <a href="https://maps.app.goo.gl/mrTzT7X15fAwh4ts5" class="flex flex-col items-center gap-1 text-slate-300 active:scale-90 transition">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path></svg>
             <span class="text-[8px] font-bold uppercase">Dealer</span>
         </a>
     </nav>
 
     <div id="zoom-modal" onclick="this.classList.remove('active')">
-        <img id="z-img" class="max-w-[90%] max-h-[85%] object-contain">
+        <img id="z-img" class="max-w-[90%] max-h-[85%] object-contain shadow-2xl">
     </div>
 
     <script>
+        // Logika Slider Infinite Loop
         function sideScroll(id, dir) {
             const el = document.getElementById(id);
             const scrollStep = el.clientWidth;
             const maxScrollLeft = el.scrollWidth - el.clientWidth;
 
             if (dir === 'r') {
-                // Jika sudah di paling kanan, balik ke nol
                 if (el.scrollLeft >= maxScrollLeft - 5) { 
                     el.scrollTo({ left: 0, behavior: 'smooth' });
                 } else {
                     el.scrollBy({ left: scrollStep, behavior: 'smooth' });
                 }
             } else {
-                // Jika sudah di paling kiri, lompat ke paling kanan
                 if (el.scrollLeft <= 5) {
                     el.scrollTo({ left: maxScrollLeft, behavior: 'smooth' });
                 } else {
@@ -134,6 +148,7 @@
             }
         }
 
+        // Logika Open Zoom
         function openZ(img) {
             document.getElementById('z-img').src = img.src;
             document.getElementById('zoom-modal').classList.add('active');
