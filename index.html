@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Honda Smart Catalog</title>
+    <title>HAMBRA MOTOR HONDA - Katalog Resmi</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     
@@ -13,184 +13,187 @@
             -webkit-tap-highlight-color: transparent;
             background: #f8fafc;
         }
-        
         .honda-red { color: #ed1c24; }
         .bg-honda-red { background-color: #ed1c24; }
         
-        /* Animasi Masuk */
+        /* Animasi Transisi Kartu */
         .product-card {
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        
-        .product-card.hidden-item {
-            opacity: 0;
-            transform: scale(0.8) translateY(20px);
-            display: none;
-        }
 
-        /* Custom Cool Hyperlink */
-        .cool-link {
-            position: relative;
-            color: #ed1c24;
-            font-weight: 700;
-            text-decoration: none;
+        /* Search Bar Animation */
+        #search-container {
+            transition: all 0.3s ease;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
         }
-        .cool-link::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            transform: scaleX(0);
-            height: 2px;
-            bottom: -2px;
-            left: 0;
-            background-color: #ed1c24;
-            transform-origin: bottom right;
-            transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
-        }
-        .cool-link:hover::after {
-            transform: scaleX(1);
-            transform-origin: bottom left;
+        #search-container.active {
+            max-height: 100px;
+            opacity: 1;
+            margin-top: 1rem;
         }
 
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        /* Glassmorphism Effect */
+        .glass {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
     </style>
 </head>
 <body class="pb-28 text-slate-800">
 
-    <header class="bg-white/80 backdrop-blur-md px-5 py-4 sticky top-0 z-50 shadow-sm flex justify-between items-center border-b border-white/10">
-        <h1 class="text-2xl font-extrabold italic tracking-tighter honda-red">HONDA</h1>
-        <div class="flex gap-4 items-center">
-            <button class="w-10 h-10 bg-slate-100 flex items-center justify-center rounded-full active:scale-90 transition">
-                <svg class="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-            </button>
+    <header class="glass px-5 py-5 sticky top-0 z-50 shadow-sm border-b border-slate-100">
+        <div class="flex justify-between items-center">
+            <div>
+                <h1 class="text-xl font-extrabold italic tracking-tighter honda-red leading-none">HAMBRA MOTOR</h1>
+                <p class="text-[10px] font-bold text-slate-400 tracking-[0.2em] uppercase mt-1">Authorized Honda Dealer</p>
+            </div>
+            <div class="flex gap-2">
+                <button onclick="toggleSearch()" class="w-11 h-11 bg-slate-100 flex items-center justify-center rounded-2xl active:scale-90 transition shadow-sm">
+                    <svg id="search-icon" class="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div id="search-container">
+            <div class="relative">
+                <input type="text" id="search-input" onkeyup="searchProduct()" placeholder="Cari Vario, Beat, atau CBR..." 
+                    class="w-full bg-slate-100 border-none rounded-2xl py-4 px-6 text-sm focus:ring-2 focus:ring-red-500 outline-none transition-all shadow-inner">
+            </div>
         </div>
     </header>
 
-    <div class="p-4">
-        <div class="w-full h-44 bg-gradient-to-br from-red-600 to-red-800 rounded-3xl mb-6 overflow-hidden relative shadow-xl shadow-red-100">
+    <div class="p-4" id="banner-section">
+        <div class="w-full h-44 bg-gradient-to-br from-red-600 to-red-800 rounded-[2rem] mb-4 overflow-hidden relative shadow-2xl shadow-red-100">
             <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
-            <div class="absolute inset-0 flex flex-col justify-end p-6 text-white">
-                <h2 class="text-xl font-bold leading-tight">Makin Keren Dengan <br> Motor Baru Honda</h2>
-                <p class="text-xs text-red-100 mt-1 opacity-80">Cek promo eksklusif bulan ini.</p>
+            <div class="absolute inset-0 flex flex-col justify-end p-7 text-white">
+                <span class="text-[10px] font-bold bg-white/20 backdrop-blur-md w-fit px-3 py-1 rounded-full mb-2">OFFICIAL STORE</span>
+                <h2 class="text-2xl font-bold leading-tight tracking-tight">Selamat Datang di <br>Hambra Motor</h2>
+                <p class="text-xs text-red-100 mt-1 opacity-80">Solusi motor Honda terbaik untuk Anda.</p>
             </div>
         </div>
     </div>
 
-    <div class="bg-white/50 backdrop-blur-sm border-b sticky top-[68px] z-40 mb-6">
-        <div id="category-container" class="flex overflow-x-auto no-scrollbar py-4 px-4 gap-3 whitespace-nowrap">
-            <button onclick="filterCategory('semua', this)" class="category-btn px-6 py-2.5 bg-honda-red text-white rounded-2xl text-xs font-bold shadow-lg shadow-red-200 transition-all">SEMUA</button>
-            <button onclick="filterCategory('matik', this)" class="category-btn px-6 py-2.5 bg-white text-slate-500 border border-slate-100 rounded-2xl text-xs font-bold transition-all">MATIK</button>
-            <button onclick="filterCategory('sport', this)" class="category-btn px-6 py-2.5 bg-white text-slate-500 border border-slate-100 rounded-2xl text-xs font-bold transition-all">SPORT</button>
-            <button onclick="filterCategory('cub', this)" class="category-btn px-6 py-2.5 bg-white text-slate-500 border border-slate-100 rounded-2xl text-xs font-bold transition-all">CUB</button>
+    <div id="category-section" class="glass border-b sticky top-[85px] z-40 mb-6">
+        <div class="flex overflow-x-auto no-scrollbar py-4 px-4 gap-3 whitespace-nowrap">
+            <button onclick="filterCategory('semua', this)" class="category-btn px-7 py-3 bg-honda-red text-white rounded-2xl text-xs font-bold shadow-lg shadow-red-200 transition-all">SEMUA</button>
+            <button onclick="filterCategory('matik', this)" class="category-btn px-7 py-3 bg-white text-slate-500 border border-slate-100 rounded-2xl text-xs font-bold transition-all hover:bg-slate-50">MATIK</button>
+            <button onclick="filterCategory('sport', this)" class="category-btn px-7 py-3 bg-white text-slate-500 border border-slate-100 rounded-2xl text-xs font-bold transition-all hover:bg-slate-50">SPORT</button>
+            <button onclick="filterCategory('cub', this)" class="category-btn px-7 py-3 bg-white text-slate-500 border border-slate-100 rounded-2xl text-xs font-bold transition-all hover:bg-slate-50">CUB</button>
         </div>
     </div>
 
     <main class="px-4">
-        <div class="flex justify-between items-center mb-6">
-            <h2 class="text-lg font-extrabold text-slate-900 tracking-tight">Katalog Produk</h2>
-            <a href="#" class="cool-link text-[10px] uppercase tracking-widest">Detail &rarr;</a>
+        <div id="no-results" class="hidden py-24 text-center">
+            <div class="bg-slate-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-5 shadow-inner">
+                <svg class="w-10 h-10 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-width="2" stroke-linecap="round"></path></svg>
+            </div>
+            <p class="text-slate-600 font-bold text-lg">Wah, motornya belum ada...</p>
+            <p class="text-xs text-slate-400 mt-2">Coba cari dengan kata kunci lain di Hambra Motor.</p>
         </div>
 
-        <div id="product-grid" class="grid grid-cols-2 gap-4">
-            
-            <div class="product-card bg-white rounded-3xl p-4 shadow-sm border border-slate-100" data-type="matik">
-                <div class="relative h-24 flex items-center justify-center mb-4 group">
-                    <img src="https://via.placeholder.com/200x150?text=Vario" alt="Vario" class="max-h-full group-hover:rotate-3 transition-transform">
+        <div id="product-grid" class="grid grid-cols-2 gap-5">
+            <div class="product-card bg-white rounded-[2.5rem] p-5 shadow-sm border border-slate-100" data-type="matik" data-name="vario 160">
+                <div class="h-28 flex items-center justify-center mb-4 group">
+                    <img src="https://via.placeholder.com/200x150?text=Vario" alt="Vario" class="max-h-full group-hover:scale-110 transition duration-500">
                 </div>
-                <h3 class="text-[13px] font-bold text-slate-800 uppercase">Vario 160</h3>
-                <p class="text-sm font-bold honda-red mt-1">Rp 27,3 Jt</p>
-                <div class="mt-4 flex gap-2">
-                    <div class="h-1 w-8 bg-honda-red rounded-full"></div>
-                    <div class="h-1 w-2 bg-slate-200 rounded-full"></div>
-                </div>
+                <h3 class="text-sm font-extrabold text-slate-800 uppercase tracking-tight">Vario 160</h3>
+                <p class="text-xs font-bold honda-red mt-2">Rp 27,3 Jt</p>
+                <button class="mt-4 w-full py-2.5 bg-slate-50 text-[10px] font-bold text-slate-400 rounded-xl uppercase tracking-widest hover:bg-red-50 hover:text-red-600 transition">Detail</button>
             </div>
 
-            <div class="product-card bg-white rounded-3xl p-4 shadow-sm border border-slate-100" data-type="matik">
-                <div class="relative h-24 flex items-center justify-center mb-4 group">
-                    <img src="https://via.placeholder.com/200x150?text=Stylo" alt="Stylo" class="max-h-full group-hover:-rotate-3 transition-transform">
+            <div class="product-card bg-white rounded-[2.5rem] p-5 shadow-sm border border-slate-100" data-type="matik" data-name="stylo 160">
+                <div class="h-28 flex items-center justify-center mb-4 group">
+                    <img src="https://via.placeholder.com/200x150?text=Stylo" alt="Stylo" class="max-h-full group-hover:scale-110 transition duration-500">
                 </div>
-                <h3 class="text-[13px] font-bold text-slate-800 uppercase">Stylo 160</h3>
-                <p class="text-sm font-bold honda-red mt-1">Rp 28,1 Jt</p>
-                <div class="mt-4 flex gap-2">
-                    <div class="h-1 w-8 bg-honda-red rounded-full"></div>
-                    <div class="h-1 w-2 bg-slate-200 rounded-full"></div>
-                </div>
+                <h3 class="text-sm font-extrabold text-slate-800 uppercase tracking-tight">Stylo 160</h3>
+                <p class="text-xs font-bold honda-red mt-2">Rp 28,1 Jt</p>
+                <button class="mt-4 w-full py-2.5 bg-slate-50 text-[10px] font-bold text-slate-400 rounded-xl uppercase tracking-widest hover:bg-red-50 hover:text-red-600 transition">Detail</button>
             </div>
 
-            <div class="product-card bg-white rounded-3xl p-4 shadow-sm border border-slate-100" data-type="sport">
-                <div class="relative h-24 flex items-center justify-center mb-4 group">
-                    <img src="https://via.placeholder.com/200x150?text=CBR" alt="CBR" class="max-h-full group-hover:scale-110 transition-transform">
+            <div class="product-card bg-white rounded-[2.5rem] p-5 shadow-sm border border-slate-100" data-type="sport" data-name="cbr150r">
+                <div class="h-28 flex items-center justify-center mb-4 group">
+                    <img src="https://via.placeholder.com/200x150?text=CBR" alt="CBR" class="max-h-full group-hover:scale-110 transition duration-500">
                 </div>
-                <h3 class="text-[13px] font-bold text-slate-800 uppercase">CBR150R</h3>
-                <p class="text-sm font-bold honda-red mt-1">Rp 37,8 Jt</p>
-                <div class="mt-4 flex gap-2">
-                    <div class="h-1 w-8 bg-honda-red rounded-full"></div>
-                    <div class="h-1 w-2 bg-slate-200 rounded-full"></div>
-                </div>
+                <h3 class="text-sm font-extrabold text-slate-800 uppercase tracking-tight">CBR150R</h3>
+                <p class="text-xs font-bold honda-red mt-2">Rp 37,8 Jt</p>
+                <button class="mt-4 w-full py-2.5 bg-slate-50 text-[10px] font-bold text-slate-400 rounded-xl uppercase tracking-widest hover:bg-red-50 hover:text-red-600 transition">Detail</button>
             </div>
 
-            <div class="product-card bg-white rounded-3xl p-4 shadow-sm border border-slate-100" data-type="cub">
-                <div class="relative h-24 flex items-center justify-center mb-4 group">
-                    <img src="https://via.placeholder.com/200x150?text=Revo" alt="Revo" class="max-h-full group-hover:scale-110 transition-transform">
+            <div class="product-card bg-white rounded-[2.5rem] p-5 shadow-sm border border-slate-100" data-type="cub" data-name="revo fit">
+                <div class="h-28 flex items-center justify-center mb-4 group">
+                    <img src="https://via.placeholder.com/200x150?text=Revo" alt="Revo" class="max-h-full group-hover:scale-110 transition duration-500">
                 </div>
-                <h3 class="text-[13px] font-bold text-slate-800 uppercase">Revo Fit</h3>
-                <p class="text-sm font-bold honda-red mt-1">Rp 16,5 Jt</p>
-                <div class="mt-4 flex gap-2">
-                    <div class="h-1 w-8 bg-honda-red rounded-full"></div>
-                    <div class="h-1 w-2 bg-slate-200 rounded-full"></div>
-                </div>
+                <h3 class="text-sm font-extrabold text-slate-800 uppercase tracking-tight">Revo Fit</h3>
+                <p class="text-xs font-bold honda-red mt-2">Rp 16,5 Jt</p>
+                <button class="mt-4 w-full py-2.5 bg-slate-50 text-[10px] font-bold text-slate-400 rounded-xl uppercase tracking-widest hover:bg-red-50 hover:text-red-600 transition">Detail</button>
             </div>
-
         </div>
     </main>
 
-    <div class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] bg-slate-900/90 backdrop-blur-xl rounded-[2.5rem] flex justify-around py-4 shadow-2xl z-50 border border-white/10">
-        <button class="text-white flex flex-col items-center gap-1">
+    <nav class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[92%] glass rounded-[2.5rem] flex justify-around py-5 shadow-2xl z-50 border border-white/40">
+        <button class="text-red-600 flex flex-col items-center gap-1 transition-all">
             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
-            <span class="text-[9px] font-bold">Home</span>
+            <span class="text-[9px] font-black uppercase">Home</span>
         </button>
-        <button class="text-slate-500 flex flex-col items-center gap-1">
+        <button class="text-slate-400 flex flex-col items-center gap-1">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
-            <span class="text-[9px] font-medium">Beli</span>
+            <span class="text-[9px] font-bold uppercase">Produk</span>
         </button>
-        <button class="text-slate-500 flex flex-col items-center gap-1">
+        <button class="text-slate-400 flex flex-col items-center gap-1">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path></svg>
-            <span class="text-[9px] font-medium">Dealer</span>
+            <span class="text-[9px] font-bold uppercase">Dealer</span>
         </button>
-    </div>
+    </nav>
 
     <script>
+        function toggleSearch() {
+            const container = document.getElementById('search-container');
+            const input = document.getElementById('search-input');
+            container.classList.toggle('active');
+            if(container.classList.contains('active')) input.focus();
+        }
+
+        function searchProduct() {
+            const query = document.getElementById('search-input').value.toLowerCase();
+            const items = document.querySelectorAll('.product-card');
+            const noResults = document.getElementById('no-results');
+            let match = false;
+
+            items.forEach(item => {
+                const name = item.getAttribute('data-name');
+                if (name.includes(query)) {
+                    item.style.display = 'block';
+                    match = true;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            noResults.style.display = match ? 'none' : 'block';
+        }
+
         function filterCategory(type, btn) {
-            // 1. Update Tampilan Tombol
             const buttons = document.querySelectorAll('.category-btn');
             buttons.forEach(b => {
-                b.classList.remove('bg-honda-red', 'text-white', 'shadow-lg', 'shadow-red-200');
-                b.classList.add('bg-white', 'text-slate-500', 'border-slate-100');
+                b.classList.remove('bg-honda-red', 'text-white', 'shadow-lg');
+                b.classList.add('bg-white', 'text-slate-500');
             });
-            
-            btn.classList.remove('bg-white', 'text-slate-500', 'border-slate-100');
-            btn.classList.add('bg-honda-red', 'text-white', 'shadow-lg', 'shadow-red-200');
+            btn.classList.add('bg-honda-red', 'text-white', 'shadow-lg');
 
-            // 2. Filter Item dengan Animasi
             const items = document.querySelectorAll('.product-card');
-            
             items.forEach(item => {
-                // Tambahkan efek fade out sebelum hilang
-                item.style.opacity = '0';
-                item.style.transform = 'scale(0.9)';
-                
-                setTimeout(() => {
-                    if (type === 'semua' || item.getAttribute('data-type') === type) {
-                        item.style.display = 'block';
-                        setTimeout(() => {
-                            item.style.opacity = '1';
-                            item.style.transform = 'scale(1)';
-                        }, 50);
-                    } else {
-                        item.style.display = 'none';
-                    }
-                }, 300);
+                if (type === 'semua' || item.getAttribute('data-type') === type) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
             });
         }
     </script>
