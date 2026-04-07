@@ -12,6 +12,7 @@
         .honda-red { color: #ed1c24; }
         .bg-honda-red { background-color: #ed1c24; }
         .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         
         .hero-banner-beat {
             background: linear-gradient(135deg, #ed1c24 0%, #333 100%);
@@ -20,19 +21,17 @@
             overflow: hidden;
         }
 
+        /* Banner Slider Style */
+        .banner-container { position: relative; width: 100%; overflow: hidden; border-radius: 1.5rem; }
+        .banner-wrapper { display: flex; transition: transform 0.5s ease-in-out; }
+        .banner-slide { min-width: 100%; }
+
         .slider-wrapper { position: relative; width: 100%; height: 120px; }
         .manual-slider { 
             display: flex; overflow-x: auto; scroll-snap-type: x mandatory; 
             scroll-behavior: smooth; height: 100%;
         }
         .manual-slide { min-width: 100%; scroll-snap-align: center; display: flex; justify-content: center; }
-
-        .nav-btn {
-            position: absolute; top: 50%; transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.9); border-radius: 50%; width: 24px; height: 24px;
-            display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1); z-index: 10; border: 1px solid #eee;
-        }
 
         #zoom-modal {
             position: fixed; inset: 0; background: rgba(0,0,0,0.95);
@@ -61,11 +60,24 @@
             <h2 class="text-2xl font-extrabold leading-tight mt-3">Honda BeAT<br>Tampil Lebih Sporty</h2>
             <p class="text-[11px] text-white/80 mt-2">Pilih varian favoritmu sekarang.</p>
         </div>
+
+        <div class="banner-container mt-6 shadow-lg">
+            <div id="autoBanner" class="banner-wrapper">
+                <div class="banner-slide">
+                    <img src="img/beat/life-style-banner-1-1920x800pxl-beat-sporty-copy-24072025-010541.webp" class="w-full h-auto object-cover">
+                </div>
+                <div class="banner-slide">
+                    <img src="img/beat/life-style-banner-2-1920x800pxl-beat-sporty-copy-24072025-010546.webp" class="w-full h-auto object-cover">
+                </div>
+                <div class="banner-slide">
+                    <img src="img/beat/life-style-banner-3-1920x800pxl-beat-sporty-copy-24072025-010551.webp" class="w-full h-auto object-cover">
+                </div>
+            </div>
+        </div>
     </section>
 
     <main class="px-4 mt-10">
         <div class="grid grid-cols-2 gap-5">
-            
             <div class="bg-white rounded-[2.5rem] p-5 shadow-sm border border-slate-50 flex flex-col justify-between">
                 <div class="slider-wrapper">
                     <div id="deluxe-s" class="manual-slider no-scrollbar">
@@ -83,7 +95,7 @@
                     </div>
                 </div>
                 <h3 class="text-[10px] font-extrabold text-slate-800 uppercase mt-6 tracking-wider text-center">BeAT Street</h3>
-                <a href="https://wa.me/6282232864543" class="text-[9px] honda-red font-extrabold mt-3 uppercase italic block text-center"">HUBUNGI SALES</a>
+                <a href="https://wa.me/6282232864543" class="text-[9px] honda-red font-extrabold mt-3 uppercase italic block text-center">HUBUNGI SALES</a>
             </div>
 
             <div class="bg-white rounded-[2.5rem] p-5 shadow-sm border border-slate-50 flex flex-col justify-between">
@@ -91,9 +103,8 @@
                     <img src="img/beat/variant-web-beat-sporty-brown-deluxe-sk-copy-24072025-010911.webp" onclick="openZ(this)" class="h-full object-contain cursor-zoom-in">
                 </div>
                 <h3 class="text-[10px] font-extrabold text-slate-800 uppercase mt-6 tracking-wider text-center">BeAT CBS</h3>
-                <a href="https://wa.me/6282232864543" class="text-[9px] honda-red font-extrabold mt-3 uppercase italic block text-center"">HUBUNGI SALES</a>
+                <a href="https://wa.me/6282232864543" class="text-[9px] honda-red font-extrabold mt-3 uppercase italic block text-center">HUBUNGI SALES</a>
             </div>
-
         </div>
     </main>
 
@@ -117,20 +128,19 @@
     </div>
 
     <script>
-        // Logika Infinite Slider
-        function sideScroll(id, dir) {
-            const el = document.getElementById(id);
-            const scrollStep = el.clientWidth;
-            const maxScrollLeft = el.scrollWidth - el.clientWidth;
+        // Logika Otomatis Banner Slider
+        let currentSlide = 0;
+        const bannerWrapper = document.getElementById('autoBanner');
+        const totalSlides = 3;
 
-            if (dir === 'r') {
-                if (el.scrollLeft >= maxScrollLeft - 5) { el.scrollTo({ left: 0, behavior: 'smooth' }); }
-                else { el.scrollBy({ left: scrollStep, behavior: 'smooth' }); }
-            } else {
-                if (el.scrollLeft <= 5) { el.scrollTo({ left: maxScrollLeft, behavior: 'smooth' }); }
-                else { el.scrollBy({ left: -scrollStep, behavior: 'smooth' }); }
-            }
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            bannerWrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
         }
+
+        // Jalankan otomatis setiap 3 detik
+        setInterval(nextSlide, 3000);
+
         function openZ(img) {
             document.getElementById('z-img').src = img.src;
             document.getElementById('zoom-modal').classList.add('active');
