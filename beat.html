@@ -67,7 +67,7 @@
 
     <section class="px-4 mt-4">
         <div class="hero-banner-beat p-8 text-white shadow-xl shadow-red-100">
-            <span class="bg-white/20 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">All New 2025</span>
+            <span class="bg-white/20 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">All New 2026</span>
             <h2 class="text-2xl font-extrabold leading-tight mt-3">Honda BeAT<br>Tampil Lebih Sporty</h2>
             <p class="text-[11px] text-white/80 mt-2">Pilih varian favoritmu sekarang.</p>
         </div>
@@ -96,35 +96,47 @@
     </section>
 
     <main class="px-4 mt-10">
-        <div class="grid grid-cols-2 gap-5">
-            <div class="bg-white rounded-[2.5rem] p-5 shadow-sm border border-slate-50 flex flex-col justify-between">
-                <div class="slider-wrapper">
-                    <div id="deluxe-s" class="manual-slider no-scrollbar">
-                        <div class="manual-slide"><img src="img/beat/variant-web-beat-sporty-black-deluxe-sk-copy-24072025-010919.webp" onclick="openZ(this)" class="h-full object-contain cursor-zoom-in"></div>
-                    </div>
-                </div>
-                <h3 class="text-[10px] font-extrabold text-slate-800 uppercase mt-6 tracking-wider text-center">BeAT Deluxe</h3>
-                <a href="https://wa.me/6281945348703" class="text-[9px] honda-red font-extrabold mt-3 uppercase italic block text-center">HUBUNGI SALES</a>
-            </div>
+        <div class="bg-white rounded-[2.5rem] p-5 shadow-sm border border-slate-50 flex flex-col justify-between">
+    <div class="slider-wrapper relative group">
+        <button onclick="sideScroll('beat-all-variants', 'l')" class="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-6 h-6 bg-white/80 rounded-full shadow-sm flex items-center justify-center border border-slate-100 opacity-0 group-hover:opacity-100 transition-opacity">
+            <svg class="w-3 h-3 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-width="3"></path></svg>
+        </button>
 
-            <div class="bg-white rounded-[2.5rem] p-5 shadow-sm border border-slate-50 flex flex-col justify-between">
-                <div class="slider-wrapper">
-                    <div id="street-s" class="manual-slider no-scrollbar">
-                        <div class="manual-slide"><img src="img/beat/variant-web-beat-sporty-funk-red-black-cbs-copy-24072025-010938.webp" onclick="openZ(this)" class="h-full object-contain cursor-zoom-in"></div>
-                    </div>
-                </div>
-                <h3 class="text-[10px] font-extrabold text-slate-800 uppercase mt-6 tracking-wider text-center">BeAT Street</h3>
-                <a href="https://wa.me/6281945348703" class="text-[9px] honda-red font-extrabold mt-3 uppercase italic block text-center">HUBUNGI SALES</a>
+        <div id="beat-all-variants" class="manual-slider no-scrollbar">
+            <div class="manual-slide">
+                <img src="img/beat/variant-web-beat-sporty-black-deluxe-sk-copy-24072025-010919.webp" onclick="openZ(this)" class="h-full object-contain cursor-zoom-in">
             </div>
-
-            <div class="bg-white rounded-[2.5rem] p-5 shadow-sm border border-slate-50 flex flex-col justify-between">
-                <div class="h-28 w-full flex items-center justify-center">
-                    <img src="img/beat/variant-web-beat-sporty-brown-deluxe-sk-copy-24072025-010911.webp" onclick="openZ(this)" class="h-full object-contain cursor-zoom-in">
-                </div>
-                <h3 class="text-[10px] font-extrabold text-slate-800 uppercase mt-6 tracking-wider text-center">BeAT CBS</h3>
-                <a href="https://wa.me/6281945348703" class="text-[9px] honda-red font-extrabold mt-3 uppercase italic block text-center">HUBUNGI SALES</a>
+            <div class="manual-slide">
+                <img src="img/beat/variant-web-beat-sporty-blue-deluxe-sk-copy-24072025-010915.webp" onclick="openZ(this)" class="h-full object-contain cursor-zoom-in">
+            </div>
+            <div class="manual-slide">
+                <img src="img/beat/variant-web-beat-sporty-brown-deluxe-sk-copy-24072025-010911.webp" onclick="openZ(this)" class="h-full object-contain cursor-zoom-in">
+            </div>
+            <div class="manual-slide">
+                <img src="img/beat/variant-web-beat-sporty-deluxe-matte-green-copy-24072025-010933.webp" onclick="openZ(this)" class="h-full object-contain cursor-zoom-in">
+            </div>
+            <div class="manual-slide">
+                <img src="img/beat/variant-web-beat-sporty-deluxe-metallic-black-copy-24072025-010926.webp" onclick="openZ(this)" class="h-full object-contain cursor-zoom-in">
+            </div>
+            <div class="manual-slide">
+                <img src="img/beat/variant-web-beat-sporty-funk-red-black-cbs-copy-24072025-010938.webp" onclick="openZ(this)" class="h-full object-contain cursor-zoom-in">
+            </div>
+            <div class="manual-slide">
+                <img src="img/beat/variant-web-beat-sporty-hard-black-cbs-copy-24072025-010945.webp" onclick="openZ(this)" class="h-full object-contain cursor-zoom-in">
+            </div>
+            <div class="manual-slide">
+                <img src="img/beat/variant-web-beat-sporty-jazz-white-black-cbs-copy-24072025-010950.webp" onclick="openZ(this)" class="h-full object-contain cursor-zoom-in">
             </div>
         </div>
+
+        <button onclick="sideScroll('beat-all-variants', 'r')" class="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-6 h-6 bg-white/80 rounded-full shadow-sm flex items-center justify-center border border-slate-100 opacity-0 group-hover:opacity-100 transition-opacity">
+            <svg class="w-3 h-3 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-width="3"></path></svg>
+        </button>
+    </div>
+
+    <h3 class="text-[10px] font-extrabold text-slate-800 uppercase mt-6 tracking-wider text-center">BeAT All Variants</h3>
+    <a href="https://wa.me/6281945348703" class="text-[9px] honda-red font-extrabold mt-3 uppercase italic block text-center">HUBUNGI SALES</a>
+</div>
     </main>
 
     <nav class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[92%] bg-white rounded-[2.5rem] py-5 px-10 shadow-2xl flex justify-between items-center border border-slate-50 z-50">
