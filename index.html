@@ -40,6 +40,17 @@
             display: none; justify-content: center; align-items: center; z-index: 100;
         }
         #zoom-modal.active { display: flex; }
+
+        .promo-slider-wrapper { position: relative; width: 100%; border-radius: 2rem; overflow: hidden; shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
+        .promo-slider { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; }
+        .promo-slide { min-width: 100%; scroll-snap-align: center; }
+        .promo-nav {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            background: white; border-radius: 50%; width: 32px; height: 32px;
+            display: flex; align-items: center; justify-content: center;
+            z-index: 20; border: none; opacity: 1; box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
     </style>
 </head>
 <body class="pb-32">
@@ -64,7 +75,7 @@
         </div>
     </header>
 
-     <section class="px-4 mt-4">
+    <section class="px-4 mt-4">
         <div class="hero-banner p-8 text-white shadow-xl shadow-red-200">
             <span class="bg-black/20 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Official Store</span>
             <h2 class="text-2xl font-extrabold leading-tight mt-3">Selamat Datang di<br>HAMBRA HONDA MALANG</h2>
@@ -73,8 +84,24 @@
 
         <div class="mt-8 flex flex-col items-center">
             <h2 class="text-sm font-extrabold text-slate-800 uppercase tracking-[0.2em] mb-4">PROMO</h2>
-            <div class="w-full rounded-[2rem] overflow-hidden shadow-lg border border-slate-50">
-                <img src="promo1.jpg" alt="Promo Honda" class="w-full h-auto object-cover">
+            
+            <div class="promo-slider-wrapper border border-slate-50">
+                <button onclick="sideScroll('promo-s', 'l')" class="promo-nav left-3">
+                    <svg class="w-4 h-4 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-width="3"></path></svg>
+                </button>
+                
+                <button onclick="sideScroll('promo-s', 'r')" class="promo-nav right-3">
+                    <svg class="w-4 h-4 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-width="3"></path></svg>
+                </button>
+
+                <div id="promo-s" class="promo-slider no-scrollbar">
+                    <div class="promo-slide">
+                        <img src="promo1.jpg" class="w-full h-auto object-cover">
+                    </div>
+                    <div class="promo-slide">
+                        <img src="promo2.jpg" class="w-full h-auto object-cover">
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -187,6 +214,12 @@
             document.getElementById('z-img').src = img.src;
             document.getElementById('zoom-modal').classList.add('active');
         }
+
+// Auto Play untuk Promo Slider
+        setInterval(() => {
+            sideScroll('promo-s', 'r');
+        }, 3000); // Berjalan setiap 3 detik
+        
     </script>
 </body>
 </html>
